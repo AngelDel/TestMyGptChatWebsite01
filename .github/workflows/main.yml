@@ -26,6 +26,9 @@ jobs:
 
       - name: Check Node.js version
         run: node -v
+
+      - name: List directory contents for debugging
+        run: ls -al
       
       - name: Install dependencies
         run: npm install
