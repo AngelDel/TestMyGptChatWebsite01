@@ -24,5 +24,10 @@ jobs:
       - name: Build project
         run: npm run build
 
+      - name: Deploy
+        run: |
+          echo "OPENAI_API_KEY=${{ secrets.OPENAI_API_KEY }}" >> .env
+          # Add commands to deploy your project, e.g., upload to a server, etc.
+          
       - name: Start server
         run: node server.js
