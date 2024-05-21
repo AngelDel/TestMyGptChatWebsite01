@@ -34,11 +34,24 @@ form.addEventListener('submit', async (e) => {
                 const data = await response.json();
                 responseTextarea.value = data.choices[0].message.content;
             } else {
-                responseTextarea.value = 'Error: Unable to process your request.';
+                responseTextarea.value = 'Error: Unable to process your request 1.';
             }
         } catch (error) {
+            responseTextarea.value = '';
+
             console.error(error);
-            responseTextarea.value = 'Error: Unable to process your request.';
+            if (error.response) {
+                console.error('Response data:', error.response.data);
+                console.error('Response status:', error.response.status);
+                console.error('Response headers:', error.response.headers);
+
+                responseTextarea.value = 'Response data:' + error.response.data;
+                responseTextarea.value += 'Response status:' + error.response.status;
+                responseTextarea.value += 'Response headers:' + error.response.headers;
+            } else {
+                console.error('Error:', error.message);
+            }
+            responseTextarea.value += 'Error: Unable to process your request.';
         }
     }
 });
