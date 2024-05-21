@@ -39,6 +39,9 @@ jobs:
       - name: Build project
         run: npm run build
 
+      - name: Comprobar que se accede al secreto
+        run: echo "My existing secret is ${{ secrets.OPENAI_API_KEY }}"
+        
       - name: Deploy
         run: |
           echo "OPENAI_API_KEY=${{ secrets.OPENAI_API_KEY }}" >> .env
