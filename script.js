@@ -1,6 +1,6 @@
-const headers = {
+ /* const headers = {
     'Authorization': `Bearer ${OPENAI_API_KEY}`
-};
+}; */
 
 const form = document.getElementById('chat-form');
 const mytextInput = document.getElementById('mytext');
