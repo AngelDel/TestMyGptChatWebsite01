@@ -34,17 +34,10 @@ form.addEventListener('submit', async (e) => {
                 const data = await response.json();
                 responseTextarea.value = data.choices[0].message.content;
             } else {
-                responseTextarea.value = 'Error: Unable to process your request 1.';
+                responseTextarea.value = 'Error: Unable to process your request.';
             }
         } catch (error) {
             console.error(error);
-            if (error.response) {
-                console.error('Response data:', error.response.data);
-                console.error('Response status:', error.response.status);
-                console.error('Response headers:', error.response.headers);
-            } else {
-                console.error('Error:', error.message);
-            }
             responseTextarea.value = 'Error: Unable to process your request.';
         }
     }
